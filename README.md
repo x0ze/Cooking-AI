@@ -30,12 +30,12 @@ Make sure you have the following installed:
     git clone https://github.com/x0ze/recipe-generator.git
     cd Cooking-AI
     ```
-2. **Build and start the containers:**
+2. **Start the containers:**
 
-    Use Docker Compose to build and start the containers:
+    Use Docker Compose to start the containers:
 
     ```bash
-    docker-compose up --build
+    docker-compose up
     ```
 
     This will create and start two containers:
