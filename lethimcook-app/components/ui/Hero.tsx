@@ -2,7 +2,7 @@ import { Button } from "./custom/button";
 import { buttonVariants } from "./custom/button";
 import { HeroCards } from "./HeroCards";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import '@/public/8.png'
+import '@/public/plate.png'
 
 export const Hero = () => {
   return (
@@ -46,7 +46,7 @@ export const Hero = () => {
 
       {/* Hero cards sections */}
       <div className="z-10">
-        <img src="8.png" alt="" />
+        <img src="plate.png" alt="" />
       </div>
 
       {/* Shadow effect */}

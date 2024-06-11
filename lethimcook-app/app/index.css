@@ -28,7 +28,7 @@ html {
 }
 
 @media (max-width: 1024px) {
-  .shadow {
+  .shadow-custom {
     top: 70px;
   }
 
@@ -45,7 +45,7 @@ html {
 }
 
 @media (max-width: 768px) {
-  .shadow {
+  .shadow-custom {
     top: 70px;
     width: 100px;
     height: 350px;
