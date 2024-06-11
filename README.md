@@ -1,4 +1,4 @@
-# Recipe Generator Web Application
+# Cooking-AI
 
 This is a Next.js web application that generates cooking recipes using a locally running AI model (Ollama). The project uses Shadcn as the UI framework and Tailwind CSS for styling. It is built with TypeScript and containerized using Docker.
 
