@@ -3,6 +3,16 @@ import { buttonVariants } from "./custom/button";
 import { HeroCards } from "./HeroCards";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import '@/public/plate.png'
+import '@/public/plate-2.png'
+import '@/public/life.png'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 
 export const Hero = () => {
   return (
@@ -46,7 +56,16 @@ export const Hero = () => {
 
       {/* Hero cards sections */}
       <div className="z-10">
-        <img src="plate.png" alt="" />
+       <Carousel>
+  <CarouselContent>
+    <CarouselItem><img src="plate.png" alt=""/></CarouselItem>
+    <CarouselItem><img src="plate-2.png" alt=""/></CarouselItem>
+    <CarouselItem><img src="life.png" alt=""/></CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+
       </div>
 
       {/* Shadow effect */}
