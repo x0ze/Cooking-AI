@@ -1,4 +1,6 @@
-import React from 'react';
+import * as React from "react"
+import PromptForm from "../PromptForm"
+ 
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -17,31 +19,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
-
-interface PromptFormProps {
-  index: number;
-  prompt: string;
-  onPromptChange: (index: number, value: string) => void;
-}
-
-const PromptForm: React.FC<PromptFormProps> = ({ index, prompt, onPromptChange }) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onPromptChange(index, event.target.value);
-  };
-
+ 
+export function CardWithForm() {
   return (
-    <form>
+    <Card className="w-[350px]">
+      <CardContent>
+        <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Aliment</Label>
-              <Input type="text" value={prompt} onChange={handleChange}  placeholder='Nom de votre aliment'/>
+              <Input id="name" placeholder="Nom de votre aliment" />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="framework">Unité</Label>
               <Select>
                 <SelectTrigger id="framework">
-                  <SelectValue placeholder="Select"/>
+                  <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent position="popper">
                   <SelectItem value="next">Kilogramme</SelectItem>
@@ -55,7 +48,10 @@ const PromptForm: React.FC<PromptFormProps> = ({ index, prompt, onPromptChange }
             </div>
           </div>
         </form>
-  );
-};
-
-export default PromptForm;
+      </CardContent>
+      <CardFooter className="flex justify-center">
+        <Button>Ajouter</Button>
+      </CardFooter>
+    </Card>
+  )
+}

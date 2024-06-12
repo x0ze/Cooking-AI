@@ -1,5 +1,6 @@
 import { Step, type StepItem, Stepper, useStepper } from "@/components/stepper";
 import { Button } from "@/components/ui/button";
+import { CardWithForm } from "@/components/ui/food"
 
 const steps = [
 	{ label: "Mode" },
@@ -21,8 +22,8 @@ export default function StepperDemo() {
 								</div>
 							)}
 							{index === 1 && (
-								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
-									<h1 className="text-xl">Aliments Content</h1>
+								<div className="h-40 flex items-center justify-between my-2 border bg-secondary text-primary rounded-md">
+									<CardWithForm />
 								</div>
 							)}
 							{index === 2 && (

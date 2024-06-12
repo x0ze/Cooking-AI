@@ -63,3 +63,7 @@ html {
     }
   }
 }
+
+.carousel-item {
+  height: 100%; /* Assurez-vous que chaque élément prend toute la hauteur */
+}

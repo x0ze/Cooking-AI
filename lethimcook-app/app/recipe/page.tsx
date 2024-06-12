@@ -9,7 +9,6 @@ export default function Home() {
     <div>
       <Navbar></Navbar>
       <StepperExamples />
-      <OllamaData></OllamaData>
       <Footer />
     </div>
 

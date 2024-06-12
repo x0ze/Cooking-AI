@@ -27,7 +27,7 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/x0ze/recipe-generator.git
+    git clone https://github.com/x0ze/Cooking-AI.git
     cd Cooking-AI
     ```
 2. **Start the containers:**
@@ -40,7 +40,7 @@ Make sure you have the following installed:
 
     This will create and start two containers:
     - **Next.js Application**: Running on port `3000`.
-    - **Ollama AI**: Running on the specified port.
+    - **Ollama AI**: Running on the 8080 but you dont need to acess.
 
 3. **Access the application:**
 
