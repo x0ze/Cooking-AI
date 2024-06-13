@@ -6,32 +6,32 @@ import {
 	CardHeader,
 	CardTitle,
   } from "@/components/ui/card"
-import { CameraIcon, ReaderIcon } from '@radix-ui/react-icons'
 import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
 import { Badge } from "@/components/ui/custom/badge";
+import { Camera, FileText } from 'lucide-react';
 
 export function ModeCards() {
     return (
-      <div className="flex items-center justify-center gap-[40px] cards">
+      <div className="flex items-center justify-center cards">
         <ToggleGroup type="single">
           <ToggleGroupItem value="image" className="h-[auto] p-1">
             {/* Card 1 */}
-            <Card className="w-96 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+            <Card className="w-[300px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
               <CardHeader>
-                <CardTitle className="flex item-center justify-between">
+                <CardTitle className="flex item-center justify-center">
                   Prendre une photo
-                  <Badge
+                </CardTitle>
+                <Badge
                     variant="secondary"
-                    className="text-sm text-primary"
+                    className="text-sm text-primary w-[fit-content] m-2 m-[auto]"
                   >
                     indisponible
                   </Badge>
-                </CardTitle>
                 <div className="flex justify-center">
-                  <CameraIcon className="icon" />
+                  <Camera className="icon" />
                 </div>
                 <CardDescription>
                   Prenez une photo de vos ingrédient et l'IA les analysera pour vous faire gagner du temps.
@@ -39,21 +39,22 @@ export function ModeCards() {
               </CardHeader>
             </Card>
           </ToggleGroupItem>
+          <div className="w-[40px]"></div>
           <ToggleGroupItem value="text" className="h-[auto] p-1">
             {/* Card 2 */}
-            <Card className="w-96  drop-shadow-xl shadow-black/10 dark:shadow-white/10">
+            <Card className="w-[300px]  drop-shadow-xl shadow-black/10 dark:shadow-white/10">
               <CardHeader>
-                <CardTitle className="flex item-center justify-between">
+                <CardTitle className="flex item-center justify-center">
                   Ajouter manuellement
-                  <Badge
+                </CardTitle>
+                <Badge
                     variant="secondary"
-                    className="text-sm text-primary"
+                    className="text-sm text-primary w-[fit-content] m-2 m-[auto]"
                   >
                   disponible
                   </Badge>
-                </CardTitle>
                 <div className="flex justify-center">
-                  <ReaderIcon className="icon"/>
+                  <FileText className="icon" />
                 </div>
                 <CardDescription>
                   Entrez manuellement tout vos ingrédients si vous ne pouvez pas le faire avec l'IA.
