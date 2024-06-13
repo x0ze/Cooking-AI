@@ -131,9 +131,17 @@
 }
 
 .cards button[data-state="on"] {
-  background-color: #22C55E;
+  background-color: #525151;
 }
 
 .cards button {
   border-radius: 10px;
+}
+
+.cards button:hover {
+  background-color: var(--card);
+}
+
+.cards button[data-state="on"]:hover {
+  background-color: #525151;
 }
