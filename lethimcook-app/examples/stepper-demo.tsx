@@ -21,13 +21,10 @@ export default function StepperDemo() {
 						<Step key={stepProps.label} {...stepProps}>
 							{/* Contenu spécifique pour chaque étape */}
 							{index === 0 && (
-								<div>
-									<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
-										<h1 className="text-xl">Choisir un mode</h1>
-									</div>
+								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md flex-col">
+									<h1 className="text-xl m-4">Choisir un mode</h1>
 									<ModeCards></ModeCards>
 								</div>
-								
 							)}
 							{index === 1 && (
 								<div className="h-40 flex justify-between my-2 border bg-secondary text-secondary rounded-md p-5">

@@ -127,8 +127,13 @@
 .icon {
   width: 100px;
   height: 100px;
+  stroke-width: 0.75px;
 }
 
 .cards button[data-state="on"] {
   background-color: #22C55E;
+}
+
+.cards button {
+  border-radius: 10px;
 }
