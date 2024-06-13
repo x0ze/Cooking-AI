@@ -15,7 +15,7 @@ import { Camera, FileText } from 'lucide-react';
 
 export function ModeCards() {
     return (
-      <div className="flex items-center justify-center cards">
+      <div className="flex items-center justify-center cards mb-8">
         <ToggleGroup type="single">
           <ToggleGroupItem value="image" className="h-[auto] p-1">
             {/* Card 1 */}
