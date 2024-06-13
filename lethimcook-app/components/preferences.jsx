@@ -14,6 +14,17 @@ import {
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import {  RadioGroup, RadioGroupItem  } from "@radix-ui/react-radio-group"
+import { Slider } from "@/components/ui/slider"
+import { Input } from "@/components/ui/input"
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
 
 export function Affine() {
   return (
@@ -75,7 +86,7 @@ export function Affine() {
     </RadioGroup>
 
         <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="necessary" className="flex flex-col space-y-1">
+          <Label htmlFor="necessary" className="flex flex-col space-y-1 pt-4">
             <span>Température</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground">
                 Choisissez si votre plât doit être chaud ou froid.
@@ -83,6 +94,21 @@ export function Affine() {
           </Label>
           <Switch id="necessary" defaultChecked aria-label="Necessary" />
         </div>
+        <div>
+            <Select>
+                <SelectTrigger>
+                    <SelectValue placeholder="Choisir" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                    <SelectItem value="hot">Chaud</SelectItem>
+                    <SelectItem value="tied">Tiède</SelectItem>
+                    <SelectItem value="cold">Froid</SelectItem>
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
+        </div>
+
         <div className="flex items-center justify-between space-x-4">
           <Label htmlFor="functional" className="flex flex-col space-y-1">
             <span>Piquant</span>
@@ -92,6 +118,7 @@ export function Affine() {
           </Label>
           <Switch id="functional" aria-label="Functional" />
         </div>
+        <Slider defaultValue={[50]} max={100} step={1} />
         <div className="flex items-center justify-between space-x-4">
           <Label htmlFor="performance" className="flex flex-col space-y-1">
             <span>Thème</span>
@@ -101,6 +128,7 @@ export function Affine() {
           </Label>
           <Switch id="performance" aria-label="Performance" />
         </div>
+        <Input placeholder="Ex. Mexicain, Romantique, ..."/>
       </CardContent>
     </Card>
   )

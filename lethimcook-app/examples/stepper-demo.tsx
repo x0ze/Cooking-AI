@@ -28,7 +28,7 @@ export default function StepperDemo() {
 							)}
 							{index === 1 && (
 								<div className="h-40 flex justify-between my-2 border bg-secondary text-secondary rounded-md p-5">
-									<div>
+									<div className="m-4">
 										<h1 className="text-center pb-2">Ajouter vos aliments</h1>
 										<OllamaData />
 									</div>

@@ -26,7 +26,7 @@ export function ModeCards() {
                 </CardTitle>
                 <Badge
                     variant="secondary"
-                    className="text-sm text-primary w-[fit-content] m-2 m-[auto]"
+                    className="text-sm text-[rgb(255,86,86)] w-[fit-content] m-2 m-[auto]"
                   >
                     indisponible
                   </Badge>
