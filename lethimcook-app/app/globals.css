@@ -123,3 +123,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.icon {
+  width: 100px;
+  height: 100px;
+}
+
+.cards button[data-state="on"] {
+  background-color: #22C55E;
+}

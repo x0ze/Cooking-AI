@@ -1,6 +1,9 @@
 import { Step, type StepItem, Stepper, useStepper } from "@/components/stepper";
 import { Button } from "@/components/ui/button";
-import { CardWithForm } from "@/components/ui/food"
+
+import { ModeCards } from "@/components/ModeCards";
+
+
 
 const steps = [
 	{ label: "Mode" },
@@ -17,13 +20,17 @@ export default function StepperDemo() {
 						<Step key={stepProps.label} {...stepProps}>
 							{/* Contenu spécifique pour chaque étape */}
 							{index === 0 && (
-								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
-									<h1 className="text-xl">Mode Content</h1>
+								<div>
+									<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
+										<h1 className="text-xl">Choisir un mode</h1>
+									</div>
+									<ModeCards></ModeCards>
 								</div>
+								
 							)}
 							{index === 1 && (
-								<div className="h-40 flex items-center justify-between my-2 border bg-secondary text-primary rounded-md">
-									<CardWithForm />
+								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
+									<h1 className="text-xl">Aliments Content</h1>
 								</div>
 							)}
 							{index === 2 && (
