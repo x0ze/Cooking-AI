@@ -3,6 +3,8 @@ import { buttonVariants } from "./custom/button";
 import { HeroCards } from "./HeroCards";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import Plate from "@/components/plate-slider"
+import TypingAnimation from "../magicui/typing-animation";
+import WordPullUp from "../magicui/word-pull-up";
 
 
 export const Hero = () => {
@@ -24,9 +26,8 @@ export const Hero = () => {
           </h2>
         </main>
 
-        <p className="text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-          Créer des recettes de cuisine grâce à l'IA. Vous avez des aliments dans votre frigo et ne savez pas quoi faire à manger, utilisez l'IA pour vous concoter des plâts savoureux selon votre régime alimentaire.
-        </p>
+        <TypingAnimation text="Créer des recettes de cuisine grâce à l'IA. Vous avez des aliments dans votre frigo et ne savez pas quoi faire à manger, utilisez l'IA pour vous concoter des plâts savoureux selon votre régime alimentaire." duration={10}/>
+
 
         <div className="space-y-4 md:space-y-0 md:space-x-4">
           <a href="recipe"><Button className="w-full md:w-1/3">Génerer une recette</Button></a>

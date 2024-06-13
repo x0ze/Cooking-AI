@@ -20,7 +20,6 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.5",
     "lucide-react": "^0.390.0",
     "next": "14.2.3",
@@ -28,17 +27,19 @@
     "ollama": "^0.5.1",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "clsx": "^2.1.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "framer-motion": "^11.2.10",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5"
   }
 }
