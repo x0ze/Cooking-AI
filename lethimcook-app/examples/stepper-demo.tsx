@@ -1,6 +1,6 @@
 import { Step, type StepItem, Stepper, useStepper } from "@/components/stepper";
 import { Button } from "@/components/ui/button";
-
+import OllamaData from "@/components/ollama";
 import { ModeCards } from "@/components/ModeCards";
 
 
@@ -29,8 +29,11 @@ export default function StepperDemo() {
 								
 							)}
 							{index === 1 && (
-								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
-									<h1 className="text-xl">Aliments Content</h1>
+								<div className="h-40 flex justify-between my-2 border bg-secondary text-secondary rounded-md p-5">
+									<div>
+										<h1 className="text-center pb-2">Ajouter vos aliments</h1>
+										<OllamaData />
+									</div>
 								</div>
 							)}
 							{index === 2 && (

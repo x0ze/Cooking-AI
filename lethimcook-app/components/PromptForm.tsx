@@ -31,30 +31,42 @@ const PromptForm: React.FC<PromptFormProps> = ({ index, prompt, onPromptChange }
   };
 
   return (
-    <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Aliment</Label>
-              <Input type="text" value={prompt} onChange={handleChange}  placeholder='Nom de votre aliment'/>
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Unité</Label>
-              <Select>
-                <SelectTrigger id="framework">
-                  <SelectValue placeholder="Select"/>
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="next">Kilogramme</SelectItem>
-                  <SelectItem value="sveltekit">Gramme</SelectItem>
-                  <SelectItem value="astro">Litre</SelectItem>
-                  <SelectItem value="nuxt">Millilitre</SelectItem>
-                  <SelectItem value="sveltekit">Pièces</SelectItem>
-                  <SelectItem value="sveltekit">Morceau</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </form>
+    <form className='w-full mx-auto p-2'>
+      <div className="flex items-center space-x-4">
+        <div className="flex-grow">
+          <Input
+            type="text"
+            value={prompt}
+            onChange={handleChange}
+            placeholder="Nom de votre aliment"
+            className="w-full"
+          />
+        </div>
+        <div className="w-1/4">
+          <Input
+            type="number"
+            placeholder="Quantité"
+            className="w-full"
+          />
+        </div>
+        <div className="w-1/4">
+          <Select>
+            <SelectTrigger id="framework" className="w-full">
+              <SelectValue placeholder="Select" />
+            </SelectTrigger>
+            <SelectContent position="popper">
+              <SelectItem value="kg">Kilogramme</SelectItem>
+              <SelectItem value="gr">Gramme</SelectItem>
+              <SelectItem value="l">Litre</SelectItem>
+              <SelectItem value="ml">Millilitre</SelectItem>
+              <SelectItem value="pcx">Pièces</SelectItem>
+              <SelectItem value="morceau">Morceau</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+    </form>
+
   );
 };
 

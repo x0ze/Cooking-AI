@@ -1,6 +1,9 @@
 'use client'
 import React, { useState } from 'react';
 import PromptForm from './PromptForm';
+import { Plus } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
 
 export default function OllamaData(): JSX.Element {
   const [prompts, setPrompts] = useState<string[]>(['']);
@@ -64,8 +67,10 @@ export default function OllamaData(): JSX.Element {
             onPromptChange={handlePromptChange}
           />
         ))}
-        <button type="button" onClick={addPromptForm}>Ajouter un prompt</button>
-        <button type="submit">Envoyer</button>
+        <Button type='button' onClick={addPromptForm} variant="outline" size="icon" className='m-2'>
+          <Plus className="h-4 w-4" />
+        </Button>
+        {/*<button type="submit">Envoyer</button>*/}
       </form>
       {loading && <div>Chargement...</div>}
       {error && <div>Erreur : {error.message}</div>}
