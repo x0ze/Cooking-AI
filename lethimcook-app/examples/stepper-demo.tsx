@@ -2,6 +2,7 @@ import { Step, type StepItem, Stepper, useStepper } from "@/components/stepper";
 import { Button } from "@/components/ui/button";
 import OllamaData from "@/components/ollama";
 import { ModeCards } from "@/components/ModeCards";
+import { Affine } from "@/components/preferences"
 
 
 
@@ -34,6 +35,7 @@ export default function StepperDemo() {
 										<h1 className="text-center pb-2">Ajouter vos aliments</h1>
 										<OllamaData />
 									</div>
+									<Affine />
 								</div>
 							)}
 							{index === 2 && (
