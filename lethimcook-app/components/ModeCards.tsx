@@ -24,18 +24,19 @@ export function ModeCards() {
                 <CardTitle className="flex item-center justify-center">
                   Prendre une photo
                 </CardTitle>
+                <div className="flex justify-center">
+                  <Camera className="icon" />
+                </div>
                 <Badge
                     variant="secondary"
                     className="text-sm text-[rgb(255,86,86)] w-[fit-content] m-2 m-[auto]"
                   >
                     indisponible
                   </Badge>
-                <div className="flex justify-center">
-                  <Camera className="icon" />
-                </div>
                 <CardDescription>
                   Prenez une photo de vos ingrédient et l'IA les analysera pour vous faire gagner du temps.
                 </CardDescription>
+                
               </CardHeader>
             </Card>
           </ToggleGroupItem>
@@ -47,15 +48,15 @@ export function ModeCards() {
                 <CardTitle className="flex item-center justify-center">
                   Ajouter manuellement
                 </CardTitle>
+                <div className="flex justify-center">
+                  <FileText className="icon" />
+                </div>
                 <Badge
                     variant="secondary"
                     className="text-sm text-primary w-[fit-content] m-2 m-[auto]"
                   >
                   disponible
                   </Badge>
-                <div className="flex justify-center">
-                  <FileText className="icon" />
-                </div>
                 <CardDescription>
                   Entrez manuellement tout vos ingrédients si vous ne pouvez pas le faire avec l'IA.
                 </CardDescription>
