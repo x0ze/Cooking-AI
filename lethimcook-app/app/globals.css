@@ -145,3 +145,7 @@
 .cards button[data-state="on"]:hover {
   background-color: #525151;
 }
+
+.allergies .relative {
+  display: none;
+}

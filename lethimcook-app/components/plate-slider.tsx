@@ -1,4 +1,4 @@
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/Carousel"
 import '@/public/plate.png'
 import '@/public/plate-2.png'
 import '@/public/life.png'

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import OllamaData from "@/components/ollama";
 import { ModeCards } from "@/components/ModeCards";
 import { Affine } from "@/components/preferences"
+import { Allergies } from "@/components/allergies";
 
 
 
@@ -37,7 +38,8 @@ export default function StepperDemo() {
 							)}
 							{index === 2 && (
 								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
-									<h1 className="text-xl">Régime Content</h1>
+									{/* <h1 className="text-xl">Régime Content</h1> */}
+									<Allergies></Allergies>
 								</div>
 							)}
 						</Step>
