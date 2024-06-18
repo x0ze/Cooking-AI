@@ -23,11 +23,19 @@ export default function plate() {
             />
           </div>
         </CarouselItem>
+		<CarouselItem>
+          <div>
+            <img
+              src="plate-3.png"
+              alt="Image 3"
+            />
+          </div>
+        </CarouselItem>
         <CarouselItem>
           <div>
             <img
               src="life.png"
-              alt="Image 3"
+              alt="Image 4"
             />
           </div>
         </CarouselItem>
