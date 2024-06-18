@@ -40,7 +40,7 @@ const PromptForm: React.FC<PromptFormProps> = ({ index, prompt, quantity, unit, 
           />
         </div>
         <div className="w-1/4">
-          <Select
+          <Select name="unit" value={unit} onValueChange={(value) => onPromptChange(index, 'unit', value)}
             name="unit"
             value={unit}
             onValueChange={(value) => onPromptChange(index, 'unit', value)}
@@ -55,6 +55,12 @@ const PromptForm: React.FC<PromptFormProps> = ({ index, prompt, quantity, unit, 
               <SelectItem value="Millilitre">Millilitre</SelectItem>
               <SelectItem value="Pièces">Pièces</SelectItem>
               <SelectItem value="Morceaux">Morceau</SelectItem>
+              <SelectItem value="Kilogramme">Kilogramme</SelectItem>
+              <SelectItem value="Gramme">Gramme</SelectItem>
+              <SelectItem value="Litre">Litre</SelectItem>
+              <SelectItem value="Millilitre">Millilitre</SelectItem>
+              <SelectItem value="Pièces">Pièces</SelectItem>
+              <SelectItem value="Morceau">Morceau</SelectItem>
             </SelectContent>
           </Select>
         </div>
