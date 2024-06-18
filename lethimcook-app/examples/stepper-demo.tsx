@@ -83,7 +83,12 @@ const Footer = () => {
 						>
 							Prev
 						</Button>
-						<Button size="sm" onClick={nextStep}>
+						<Button
+							id={isLastStep ? "my-form" : undefined}
+							type={isLastStep ? "submit" : "button"}
+							size="sm"
+							onClick={nextStep}
+							>
 							{isLastStep ? "Finish" : isOptionalStep ? "Skip" : "Next"}
 						</Button>
 					</>

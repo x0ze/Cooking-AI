@@ -4,11 +4,30 @@ import { ollama } from "@/app/api/ollamaConnect";
 export async function POST(req: any): Promise<any> {
     const { prompt }: { prompt: string } = await req.json();
     console.log('Received prompt:', prompt);
+    const schema = {
+        "Titre": {
+          "type": "string",
+          "description": "Le titre du plat générer."
+        },
+        "Ingredient": {
+          "type": "string",
+          "description": "Liste des ingrédients utilisé pour faire le plat"
+        },
+        "Recette": 
+        {
+          "type": "string",
+          "description": "Marche a suivre étape par étape pour faire le plat"
+        }
+      }
+      const msgs = [
+        {"role": "system", "content": `Une personne te donne une liste d'ingrédient. Créer une recette en français qui contient les aliments. L'output doit être générer selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}`}, 
+        { "role": "user", "content":  prompt}, 
+      ]
 
-    const response = await ollama.generate({
-        model: 'gemma:2b',
-        prompt: prompt,
-        stream: false
+    const response = await ollama.chat({
+        model: 'llama3',
+        messages: msgs,
+        stream: false,
     });
 
     console.log('Generated response:', response);
