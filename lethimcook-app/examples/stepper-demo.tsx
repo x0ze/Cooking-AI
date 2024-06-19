@@ -4,13 +4,13 @@ import OllamaData from "@/components/ollama";
 import { ModeCards } from "@/components/ModeCards";
 import { Affine } from "@/components/preferences"
 import { Allergies } from "@/components/allergies";
-
+import OllamaSubmit from "@/components/ollama-submit";
 
 
 const steps = [
 	{ label: "Mode" },
-	{ label: "Aliments" },
 	{ label: "Régime" },
+	{ label: "Aliments" },
 ] satisfies StepItem[];
 
 export default function StepperDemo() {
@@ -28,19 +28,20 @@ export default function StepperDemo() {
 								</div>
 							)}
 							{index === 1 && (
-								<div className="h-40 flex justify-between my-2 border bg-secondary text-secondary rounded-md p-5">
-									<div className="m-4 w-full">
-										<h1 className="text-center pb-2">Ajouter vos aliments</h1>
-										<OllamaData />
-									</div>
-									<Affine />
-								</div>
+								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
+								{/* <h1 className="text-xl">Régime Content</h1> */}
+								<Allergies></Allergies>
+								<OllamaSubmit></OllamaSubmit>
+							</div>
 							)}
 							{index === 2 && (
-								<div className="h-40 flex items-center justify-center my-2 border bg-secondary text-primary rounded-md">
-									{/* <h1 className="text-xl">Régime Content</h1> */}
-									<Allergies></Allergies>
+								<div className="h-40 flex justify-between my-2 border bg-secondary text-secondary rounded-md p-5">
+								<div className="m-4 w-full">
+									<h1 className="text-center pb-2">Ajouter vos aliments</h1>
+									<OllamaData />
 								</div>
+								<Affine />
+							</div>
 							)}
 						</Step>
 					);
@@ -60,6 +61,7 @@ const Footer = () => {
 		isLastStep,
 		isOptionalStep,
 		isDisabledStep,
+		activeStep
 	} = useStepper();
 	return (
 		<>
@@ -83,14 +85,19 @@ const Footer = () => {
 						>
 							Prev
 						</Button>
-						<Button
-							id={isLastStep ? "my-form" : undefined}
-							type={isLastStep ? "submit" : "button"}
-							size="sm"
-							onClick={nextStep}
-							>
-							{isLastStep ? "Finish" : isOptionalStep ? "Skip" : "Next"}
-						</Button>
+						{isLastStep ? <button type="submit" form="food-form" className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors 
+						focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground 
+						shadow-sm hover:bg-primary/80 h-8 rounded-md px-3 text-xs">Finish</button> : 
+							<Button
+								id={isLastStep ? "my-form" : undefined} 
+								// type={isLastStep ? "submit" : "button"}
+								type="button"
+								size="sm"
+								onClick={nextStep}
+								>
+								{isLastStep ? "Finish" : isOptionalStep ? "Skip" : "Next"}
+							</Button>
+						}
 					</>
 				)}
 			</div>
