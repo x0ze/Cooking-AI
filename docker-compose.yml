@@ -2,16 +2,16 @@ services:
   next-app:
     image: node:latest
     container_name: cook_next_app
-    command: /bin/sh -c "cd /app/cook-app && npm install && npm run dev"
+    command: /bin/sh -c "cd /app/cook-app && npm install && npm install @radix-ui/react-accordion && npm run dev"
     ports:
       - 3000:3000
     working_dir: /app/cook-app
     environment:
       - WATCHPACK_POLLING=true
     volumes:
-    - type: bind
-      source: ./lethimcook-app
-      target: /app/cook-app
+      - type: bind
+        source: ./lethimcook-app
+        target: /app/cook-app
     tty: true
     networks:
       - cook_network

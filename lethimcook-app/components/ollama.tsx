@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PromptForm from './PromptForm';
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import {callback} from "@/components/ollama-submit";
 interface Prompt {
   prompt: string;
   quantity: string;
@@ -47,9 +47,9 @@ export default function OllamaData(): JSX.Element {
         })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+       if (!response.ok) {
+         throw new Error(`HTTP error! status: ${response.status}`);
+       }
 
       const data = await response.json();
       console.log('Response data:', data);
@@ -72,11 +72,14 @@ export default function OllamaData(): JSX.Element {
     } finally {
       setLoading(false);
     }
+    // finally {
+    //   //
+    // }
   };
-
   return (
     <>
-      <form id='my-form' onSubmit={handleSubmit}>
+    
+      <form id='food-form' onSubmit={handleSubmit}>
         {prompts.map((prompt, index) => (
           <PromptForm
             key={index}
@@ -90,7 +93,7 @@ export default function OllamaData(): JSX.Element {
         <Button type='button' onClick={addPromptForm} variant="outline" size="icon" className='m-2'>
           <Plus className="h-4 w-4" />
         </Button>
-        <button type="submit">Envoyer</button>
+        {/* <button type="submit">Valider</button> */}
       </form>
       {loading && <div>Chargement...</div>}
       {error && <div>Erreur : {error.message}</div>}
@@ -98,3 +101,6 @@ export default function OllamaData(): JSX.Element {
     </>
   );
 }
+
+
+
