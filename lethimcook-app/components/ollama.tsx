@@ -1,9 +1,8 @@
-// OllamaData.tsx
 import React, { useState } from 'react';
 import PromptForm from './PromptForm';
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {callback} from "@/components/ollama-submit";
+
 interface Prompt {
   prompt: string;
   quantity: string;
@@ -47,22 +46,31 @@ export default function OllamaData(): JSX.Element {
         })
       });
 
-       if (!response.ok) {
-         throw new Error(`HTTP error! status: ${response.status}`);
-       }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const data = await response.json();
       console.log('Response data:', data);
 
-      // Extraire les valeurs spécifiques du message JSON
-      const messageContent = JSON.parse(data.message.content);
+      // Nettoyer les caractères de contrôle dans le contenu du message
+      const cleanedContent = data.message.content.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
+      const messageContent = JSON.parse(cleanedContent);
       const { Titre, Description, Ingredient, Recette } = messageContent;
 
-      // Stocker chaque élément avec des clés distinctes dans localStorage
-      localStorage.setItem('titre', JSON.stringify(Titre));
-      localStorage.setItem('description', JSON.stringify(Description));
-      localStorage.setItem('ingredient', JSON.stringify(Ingredient));
-      localStorage.setItem('recette', JSON.stringify(Recette));
+      // Vérifier et stocker chaque élément avec des clés distinctes dans localStorage
+      if (Titre && Titre.description) {
+        localStorage.setItem('titre', Titre.description);
+      }
+      if (Description && Description.description) {
+        localStorage.setItem('description', Description.description);
+      }
+      if (Ingredient && Ingredient.description) {
+        localStorage.setItem('ingredient', JSON.stringify(Ingredient.description));
+      }
+      if (Recette && Recette.description) {
+        localStorage.setItem('recette', Recette.description);
+      }
 
       // Mettre à jour l'état avec le message complet si nécessaire
       setResponseMessage(data.message.content);
@@ -72,13 +80,10 @@ export default function OllamaData(): JSX.Element {
     } finally {
       setLoading(false);
     }
-    // finally {
-    //   //
-    // }
   };
+
   return (
     <>
-    
       <form id='food-form' onSubmit={handleSubmit}>
         {prompts.map((prompt, index) => (
           <PromptForm
@@ -93,7 +98,6 @@ export default function OllamaData(): JSX.Element {
         <Button type='button' onClick={addPromptForm} variant="outline" size="icon" className='m-2'>
           <Plus className="h-4 w-4" />
         </Button>
-        {/* <button type="submit">Valider</button> */}
       </form>
       {loading && <div>Chargement...</div>}
       {error && <div>Erreur : {error.message}</div>}
@@ -101,6 +105,3 @@ export default function OllamaData(): JSX.Element {
     </>
   );
 }
-
-
-

@@ -24,7 +24,7 @@ export async function POST(req: any): Promise<any> {
         }
       }
       const msgs = [
-        {"role": "system", "content": `Une personne te donne une liste d'ingrédient. Créer une recette qui contient les aliments. L'output doit être en français et générer selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}`}, 
+        {"role": "system", "content": `Une personne te donne une liste d'ingrédient. Créer une recette qui contient les aliments. L'output doit être en français et générer selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)} donne uniquement le json et ne fait pas de phrase inutile avant et après le json`}, 
         { "role": "user", "content":  prompt}, 
       ]
 
