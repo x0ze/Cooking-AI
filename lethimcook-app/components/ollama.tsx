@@ -36,7 +36,7 @@ export default function OllamaData(): JSX.Element {
       const predefinedPrompt = "Fait une recette avec les aliments suivants :";
       const formattedPrompts = prompts.map(prompt => `${prompt.prompt} [${prompt.quantity} ${prompt.unit}]`);
       const promptText = `${predefinedPrompt} ${formattedPrompts.join(', ')}`;
-      console.log(promptText)
+      console.log(promptText);
       const response = await fetch(`http://localhost:3000/api/generate`, {
         method: 'POST',
         headers: {
@@ -53,7 +53,19 @@ export default function OllamaData(): JSX.Element {
 
       const data = await response.json();
       console.log('Response data:', data);
-      setResponseMessage(data.response);
+
+      // Extraire les valeurs spécifiques du message JSON
+      const messageContent = JSON.parse(data.message.content);
+      const { Titre, Description, Ingredient, Recette } = messageContent;
+
+      // Stocker chaque élément avec des clés distinctes dans localStorage
+      localStorage.setItem('titre', JSON.stringify(Titre));
+      localStorage.setItem('description', JSON.stringify(Description));
+      localStorage.setItem('ingredient', JSON.stringify(Ingredient));
+      localStorage.setItem('recette', JSON.stringify(Recette));
+
+      // Mettre à jour l'état avec le message complet si nécessaire
+      setResponseMessage(data.message.content);
     } catch (error) {
       console.error('Erreur lors de la récupération des données', error);
       setError(error as Error);
@@ -82,7 +94,7 @@ export default function OllamaData(): JSX.Element {
       </form>
       {loading && <div>Chargement...</div>}
       {error && <div>Erreur : {error.message}</div>}
-      {responseMessage && <div>Réponse: {responseMessage}</div>}
+      {responseMessage && <pre>Réponse: {responseMessage}</pre>}
     </>
   );
 }

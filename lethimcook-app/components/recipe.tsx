@@ -1,6 +1,13 @@
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { Card } from "./ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
  
 export function Recipe() {
   return (
@@ -14,8 +21,7 @@ export function Recipe() {
                 <Skeleton className="h-4 w-[60%]" />
             </div>
        </div>
-      <Card className="w-[350px] h-[600px] m-0">
-
+      <Card className="w-[400px] h-[600px] m-0">
       </Card>
     </div>
   )

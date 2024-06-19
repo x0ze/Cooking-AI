@@ -9,9 +9,13 @@ export async function POST(req: any): Promise<any> {
           "type": "string",
           "description": "Le titre du plat générer."
         },
+        "Description": {
+          "type": "string",
+          "description": "Courte description du plat."
+        },
         "Ingredient": {
           "type": "string",
-          "description": "Liste des ingrédients utilisé pour faire le plat"
+          "description": "Liste des ingrédients qu'il faut pour faire le plat"
         },
         "Recette": 
         {
@@ -20,7 +24,7 @@ export async function POST(req: any): Promise<any> {
         }
       }
       const msgs = [
-        {"role": "system", "content": `Une personne te donne une liste d'ingrédient. Créer une recette en français qui contient les aliments. L'output doit être générer selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}`}, 
+        {"role": "system", "content": `Une personne te donne une liste d'ingrédient. Créer une recette qui contient les aliments. L'output doit être en français et générer selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}`}, 
         { "role": "user", "content":  prompt}, 
       ]
 
