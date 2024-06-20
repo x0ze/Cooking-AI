@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Step, type StepItem, Stepper, useStepper } from "@/components/stepper";
 import { Button } from "@/components/ui/button";
 import OllamaData from "@/components/ollama";
@@ -6,14 +5,11 @@ import { ModeCards } from "@/components/ModeCards";
 import { Affine } from "@/components/preferences"
 import { Allergies } from "@/components/allergies";
 import OllamaSubmit from "@/components/ollama-submit";
-
-
 const steps = [
 	{ label: "Mode" },
 	{ label: "Régime" },
 	{ label: "Aliments" },
 ] satisfies StepItem[];
-
 export default function StepperDemo() {
 	return (
 		<div className="container flex w-full flex-col gap-4">
@@ -52,7 +48,6 @@ export default function StepperDemo() {
 		</div>
 	);
 }
-
 const Footer = () => {
 	const {
 		nextStep,
@@ -64,22 +59,6 @@ const Footer = () => {
 		isDisabledStep,
 		activeStep
 	} = useStepper();
-	
-		const [withOutForm, setWithOutForm] = useState<boolean>(true);
-
-	// Function to check for changes
-	function checkForChanges() {
-		const value = localStorage.getItem('formData');
-		if (value && value.length && JSON.parse(value)[0].prompt != '') {
-			setWithOutForm(false);
-		} else {
-			setWithOutForm(true);
-		}
-	}
-
-	// Check for changes x second milliseconds)
-	setInterval(checkForChanges, 600);
-	
 	return (
 		<>
 			{hasCompletedAllSteps && (
@@ -102,11 +81,11 @@ const Footer = () => {
 						>
 							Prev
 						</Button>
-						{isLastStep ? <button type="submit" form="food-form" disabled={withOutForm ? "disabled" : undefined} className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors 
+						{isLastStep ? <button type="submit" form="food-form" className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors 
 						focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground 
 						shadow-sm hover:bg-primary/80 h-8 rounded-md px-3 text-xs">Finish</button> : 
-							<Button
-								id={isLastStep ? "my-form" : undefined} 
+							<Button	
+							    id={isLastStep ? "my-form" : undefined} 
 								// type={isLastStep ? "submit" : "button"}
 								type="button"
 								size="sm"
