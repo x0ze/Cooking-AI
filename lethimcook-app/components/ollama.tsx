@@ -53,27 +53,31 @@ export default function OllamaData(): JSX.Element {
       const data = await response.json();
       console.log('Response data:', data);
 
-      // Nettoyer les caractères de contrôle dans le contenu du message
-      const cleanedContent = data.message.content.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
+      const cleanedContent = data.message.content
+        .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
+        .replace(/\\n/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      console.log('Cleaned Content:', cleanedContent);
+
       const messageContent = JSON.parse(cleanedContent);
       const { Titre, Description, Ingredient, Recette } = messageContent;
 
-      // Vérifier et stocker chaque élément avec des clés distinctes dans localStorage
-      if (Titre && Titre.description) {
-        localStorage.setItem('titre', Titre.description);
+      if (Titre) {
+        localStorage.setItem('titre', Titre);
       }
-      if (Description && Description.description) {
-        localStorage.setItem('description', Description.description);
+      if (Description) {
+        localStorage.setItem('description', Description);
       }
-      if (Ingredient && Ingredient.description) {
-        localStorage.setItem('ingredient', JSON.stringify(Ingredient.description));
+      if (Ingredient) {
+        localStorage.setItem('ingredient', JSON.stringify(Ingredient));
       }
-      if (Recette && Recette.description) {
-        localStorage.setItem('recette', Recette.description);
+      if (Recette) {
+        localStorage.setItem('recette', JSON.stringify(Recette));
       }
 
-      // Mettre à jour l'état avec le message complet si nécessaire
-      setResponseMessage(data.message.content);
+      
     } catch (error) {
       console.error('Erreur lors de la récupération des données', error);
       setError(error as Error);

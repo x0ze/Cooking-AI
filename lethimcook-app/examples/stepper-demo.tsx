@@ -5,6 +5,7 @@ import { ModeCards } from "@/components/ModeCards";
 import { Affine } from "@/components/preferences"
 import { Allergies } from "@/components/allergies";
 import OllamaSubmit from "@/components/ollama-submit";
+import { redirect } from 'next/navigation'
 const steps = [
 	{ label: "Mode" },
 	{ label: "Régime" },

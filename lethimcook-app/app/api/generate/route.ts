@@ -4,29 +4,44 @@ import { ollama } from "@/app/api/ollamaConnect";
 export async function POST(req: any): Promise<any> {
     const { prompt }: { prompt: string } = await req.json();
     console.log('Received prompt:', prompt);
+    console.log('Received prompt:', prompt);
     const schema = {
         "Titre": {
-          "type": "string",
-          "description": "Le titre du plat générer."
+            "type": "string",
+            "description": "Le titre du plat généré. Il doit être un nom de plat réaliste et couramment utilisé."
         },
         "Description": {
-          "type": "string",
-          "description": "Courte description du plat."
+            "type": "string",
+            "description": "Description du plat."
         },
         "Ingredient": {
-          "type": "string",
-          "description": "Liste des ingrédients qu'il faut pour faire le plat"
+            "type": "string",
+            "description": "Liste des ingrédients nécessaires pour préparer le plat."
         },
-        "Recette": 
-        {
-          "type": "string",
-          "description": "Marche a suivre étape par étape pour faire le plat"
+        "Recette": {
+            "type": "string",
+            "description": "Instructions étape par étape pour préparer le plat."
         }
-      }
-      const msgs = [
-        {"role": "system", "content": `Une personne te donne une liste d'ingrédient. Créer une recette qui contient les aliments. L'output doit être en français et générer selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)} donne uniquement le json et ne fait pas de phrase inutile avant et après le json`}, 
-        { "role": "user", "content":  prompt}, 
-      ]
+    };
+    
+    const exampleOutput = {
+        "Titre": "Burger",
+        "Description": "Un burger classique avec un steak juteux, du pain et du ketchup.",
+        "Ingredient": ["Pain (3x)", "steak (250 grammes)", "ketchup (selon envie)"],
+        "Recette": ["Faites cuire le steak selon votre préférence", "Toastez légèrement le pain", "Placez le steak cuit sur la moitié inférieure du pain", "Ajoutez du ketchup par-dessus le steak", "Refermez le burger avec la moitié supérieure du pain et servez."]
+    };
+    
+    const msgs = [
+        {
+            "role": "system",
+            "content": `Une personne te donne une liste d'ingrédients. Crée une recette qui utilise ces ingrédients de manière réaliste. Le nom du plat doit être reconnaissable et logique par rapport aux ingrédients. L'output doit être en français et doit être généré selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}. Fournis uniquement le JSON, sans texte supplémentaire avant ou après. Voici un exemple d'output attendu :
+            ${JSON.stringify(exampleOutput, null, 2)}`
+        }, 
+        { 
+            "role": "user", 
+            "content": prompt 
+        }
+    ];    
 
     const response = await ollama.chat({
         model: 'llama3',
