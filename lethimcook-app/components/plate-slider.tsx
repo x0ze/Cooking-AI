@@ -2,6 +2,9 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 import '@/public/plate.png'
 import '@/public/plate-2.png'
 import '@/public/life.png'
+import '@/public/plate-5.png'
+import '@/public/plate-7.png'
+import '@/public/plate-8.png'
 
 export default function plate() {
   return (
@@ -26,6 +29,20 @@ export default function plate() {
 		<CarouselItem>
           <div>
             <img
+              src="plate-5.png"
+              alt="Image 5"
+            />
+          </div>
+        </CarouselItem>
+        <div>
+            <img
+              src="plate-8.png"
+              alt="Image 3"
+            />
+          </div>
+		<CarouselItem>
+          <div>
+            <img
               src="plate-3.png"
               alt="Image 3"
             />
@@ -34,8 +51,8 @@ export default function plate() {
         <CarouselItem>
           <div>
             <img
-              src="life.png"
-              alt="Image 4"
+              src="plate-7.png"
+              alt="Image 3"
             />
           </div>
         </CarouselItem>
