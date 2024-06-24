@@ -48,7 +48,7 @@ export default function OllamaData(): JSX.Element {
         body: JSON.stringify({
           prompt: promptText
         })
-      })
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -89,8 +89,8 @@ export default function OllamaData(): JSX.Element {
       if (Glucide) {
         localStorage.setItem('glucide', JSON.stringify(Glucide));
       }
-
       
+
     } catch (error) {
       console.error('Erreur lors de la récupération des données', error);
       setError(error as Error);
@@ -118,10 +118,10 @@ export default function OllamaData(): JSX.Element {
           <Plus className="h-4 w-4" />
         </Button>
       </form>
-      {loading && (
-  <div style={{ color: 'green', fontWeight: 'bold', animation: 'pulse 1s infinite alternate' }}>
+      {loading && 
+      <div style={{ color: 'green', fontWeight: 'bold', animation: 'pulse 1s infinite alternate' }}>
     Votre recette est en cours de génération...
-  </div>
+      </div>}
       {error && <div>Erreur : {error.message}</div>}
       {responseMessage && <pre>Réponse: {responseMessage}</pre>}
     </>
