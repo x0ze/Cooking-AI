@@ -113,7 +113,7 @@ export function RecipeComplete() {
               <CardContent>
                 <div className="text-2xl font-bold">20 g</div>
                 <p className="text-xs text-muted-foreground">
-                  Le rapport normal pour un adulte est de 250, 300/j
+                  Le rapport normal pour un adulte est de ~275/j
                 </p>
               </CardContent>
             </Card>
