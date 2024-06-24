@@ -1,7 +1,10 @@
+
 import React, { useState } from 'react';
 import PromptForm from './PromptForm';
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+
 
 interface Prompt {
   prompt: string;
@@ -10,6 +13,7 @@ interface Prompt {
 }
 
 export default function OllamaData(): JSX.Element {
+  const router = useRouter();
   const [prompts, setPrompts] = useState<Prompt[]>([{ prompt: '', quantity: '', unit: '' }]);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -44,7 +48,7 @@ export default function OllamaData(): JSX.Element {
         body: JSON.stringify({
           prompt: promptText
         })
-      });
+      })
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -83,6 +87,8 @@ export default function OllamaData(): JSX.Element {
       setError(error as Error);
     } finally {
       setLoading(false);
+      console.log("Response received");
+      router.replace("/generate");
     }
   };
 
