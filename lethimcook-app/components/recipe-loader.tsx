@@ -26,11 +26,14 @@ export const RecipeLoader: React.FC = () => {
     if (typeof window !== 'undefined') {
       checkLocalStorage();
       window.addEventListener('storage', checkLocalStorage);
-    }
 
-    return () => {
-      window.removeEventListener('storage', checkLocalStorage);
-    };
+      const interval = setInterval(checkLocalStorage, 1000);
+
+      return () => {
+        window.removeEventListener('storage', checkLocalStorage);
+        clearInterval(interval);
+      };
+    }
   }, []);
 
   return isRecipeComplete ? <RecipeComplete /> : <Recipe />;

@@ -13,7 +13,6 @@ interface Prompt {
 
 let promptText = {};
 export function callback(data : any){
-  // assign this data to another variable so that one can use it
   console.log(data)
   promptText = data;
 }

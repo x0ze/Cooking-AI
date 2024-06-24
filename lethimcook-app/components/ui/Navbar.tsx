@@ -32,6 +32,10 @@ const routeList: RouteProps[] = [
   },
   {
     href: "/recipe",
+    label: "Générer",
+  },
+  {
+    href: "/generate",
     label: "Recette",
   },
   {

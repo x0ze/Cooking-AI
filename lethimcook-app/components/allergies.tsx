@@ -29,8 +29,7 @@ export function Allergies() {
           <div className="w-full allergies">
             <span>Allergies</span>
             <MultipleSelector
-              // defaultOptions={OPTIONS}
-              className="w-full"
+              className="w-full mt-2"
               placeholder="Entrer une allergie"
               creatable
               emptyIndicator={
@@ -63,7 +62,7 @@ export function Allergies() {
             <Input
               type="number"
               placeholder="Entrer un nombre de calories pour votre plat"
-              className="w-full"
+              className="w-full mt-2"
               id="calorie"
             />
           </div>

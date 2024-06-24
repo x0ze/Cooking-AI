@@ -13,6 +13,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
+import { Utensils } from 'lucide-react';
 
 export const RecipeComplete: React.FC = () => {
   const [steps, setSteps] = useState<string[]>([]);
@@ -51,7 +52,17 @@ export const RecipeComplete: React.FC = () => {
       <div className="h-full w-[60%]">
         <Skeleton className="h-[400px] w-full rounded-xl" />
         <div className="space-y-2">
-          <h1 className="mt-5">{recipeTitle}</h1>
+          <div className="flex justify-start">
+            <h1 className="mt-5">{recipeTitle}</h1>
+            <Card className="m-4 w-16">
+              <CardContent className="p-2">
+                      <div className="flex justify-between">
+                        <h2 className="text-lg">{localStorage.getItem('couvert')}</h2>
+                        <Utensils className="text-lg"/>
+                      </div>
+              </CardContent>
+            </Card>
+          </div>
           <p className="text-base text-muted-foreground mx-auto">{recipeDescription}</p>
           <Accordion type="single" collapsible className="w-full text-lg font-normal">
             {steps.map((step, index) => (

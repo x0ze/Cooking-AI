@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import PromptForm from './PromptForm';
-import { Plus } from "lucide-react";
+import { Plus, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-
 
 interface Prompt {
   prompt: string;
@@ -27,6 +25,11 @@ export default function OllamaData(): JSX.Element {
 
   const addPromptForm = () => {
     setPrompts([...prompts, { prompt: '', quantity: '', unit: '' }]);
+  };
+
+  const removePromptForm = (index: number) => {
+    const newPrompts = prompts.filter((_, i) => i !== index);
+    setPrompts(newPrompts);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -66,7 +69,7 @@ export default function OllamaData(): JSX.Element {
       console.log('Cleaned Content:', cleanedContent);
 
       const messageContent = JSON.parse(cleanedContent);
-      const { Titre, Description, Ingredient, Recette, Calorie, Prot, Glucide } = messageContent;
+      const { Titre, Description, Ingredient, Recette, Calorie, Prot, Glucide, Couvert } = messageContent;
 
       if (Titre) {
         localStorage.setItem('titre', Titre);
@@ -89,6 +92,9 @@ export default function OllamaData(): JSX.Element {
       if (Glucide) {
         localStorage.setItem('glucide', JSON.stringify(Glucide));
       }
+      if (Couvert) {
+        localStorage.setItem('couvert', JSON.stringify(Couvert));
+      }
       
     } catch (error) {
       console.error('Erreur lors de la récupération des données', error);
@@ -103,20 +109,30 @@ export default function OllamaData(): JSX.Element {
     <>
       <form id='food-form' onSubmit={handleSubmit}>
         {prompts.map((prompt, index) => (
-          <PromptForm
-            key={index}
-            index={index}
-            prompt={prompt.prompt}
-            quantity={prompt.quantity}
-            unit={prompt.unit}
-            onPromptChange={handlePromptChange}
-          />
+          <div key={index} className="prompt-form flex items-center mb-2">
+            <PromptForm
+              index={index}
+              prompt={prompt.prompt}
+              quantity={prompt.quantity}
+              unit={prompt.unit}
+              onPromptChange={handlePromptChange}
+            />
+            <Button
+              type='button'
+              onClick={() => removePromptForm(index)}
+              variant="outline"
+              size="icon"
+              className='m-2 text-red-400 border-red-400 hover:bg-red-500 hover:text-white'
+            >
+              <Trash className="h-4 w-4" />
+            </Button>
+          </div>
         ))}
         <Button type='button' onClick={addPromptForm} variant="outline" size="icon" className='m-2'>
           <Plus className="h-4 w-4" />
         </Button>
       </form>
-      {loading && <div>Chargement...</div>}
+      {loading}
       {error && <div>Erreur : {error.message}</div>}
       {responseMessage && <pre>Réponse: {responseMessage}</pre>}
     </>

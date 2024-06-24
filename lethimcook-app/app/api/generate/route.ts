@@ -33,6 +33,10 @@ export async function POST(req: any): Promise<any> {
         "Glucide": {
             "type": "string",
             "description": "Le nombre de glucide du plat en gramme"
+        },
+        "Couvert": {
+            "type": "string",
+            "description": "Le nombre de personne pour manger le plat"
         }
     };
     
@@ -43,7 +47,8 @@ export async function POST(req: any): Promise<any> {
         "Recette": ["Faites cuire le steak selon votre préférence", "Toastez légèrement le pain", "Placez le steak cuit sur la moitié inférieure du pain", "Ajoutez du ketchup par-dessus le steak", "Refermez le burger avec la moitié supérieure du pain et servez."],
         "Calorie": 216,
         "Prot": 15,
-        "Glucide": 20
+        "Glucide": 20,
+        "Couvert": 1
     };
     
     const msgs = [
