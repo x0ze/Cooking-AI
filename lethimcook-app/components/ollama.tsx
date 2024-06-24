@@ -49,7 +49,7 @@ export default function OllamaData(): JSX.Element {
         body: JSON.stringify({
           prompt: promptText
         })
-      })
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
