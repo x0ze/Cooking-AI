@@ -34,7 +34,7 @@ export const Hero = () => {
           
           <a
             rel="noreferrer noopener"
-            href="https://github.com/x0ze"
+            href="https://github.com/x0ze/Cooking-AI"
             target="_blank"
             className={`w-full md:w-1/3 ${buttonVariants({
               variant: "outline",

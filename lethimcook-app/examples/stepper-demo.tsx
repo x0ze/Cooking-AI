@@ -80,11 +80,11 @@ const Footer = () => {
 							size="sm"
 							variant="secondary"
 						>
-							Prev
+							Retour
 						</Button>
 						{isLastStep ? <button type="submit" form="food-form" className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors 
 						focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground 
-						shadow-sm hover:bg-primary/80 h-8 rounded-md px-3 text-xs">Finish</button> : 
+						shadow-sm hover:bg-primary/80 h-8 rounded-md px-3 text-xs">Générer</button> : 
 							<Button	
 							    id={isLastStep ? "my-form" : undefined} 
 								// type={isLastStep ? "submit" : "button"}
@@ -92,7 +92,7 @@ const Footer = () => {
 								size="sm"
 								onClick={nextStep}
 								>
-								{isLastStep ? "Finish" : isOptionalStep ? "Skip" : "Next"}
+								{isLastStep ? "Générer" : isOptionalStep ? "passer" : "Suivant"}
 							</Button>
 						}
 					</>

@@ -43,7 +43,7 @@ export const Footer = () => {
 
       <div className="container pt-3">
         <p className="text-sm opacity-60">
-          &copy; 2024 Home page made by{" "}
+          &copy; 2024 Site web fait par{" "}
           <a
             rel="noreferrer noopener"
             target="_blank"
