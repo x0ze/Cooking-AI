@@ -118,7 +118,10 @@ export default function OllamaData(): JSX.Element {
           <Plus className="h-4 w-4" />
         </Button>
       </form>
-      {loading && <div>Chargement...</div>}
+      {loading && (
+  <div style={{ color: 'green', fontWeight: 'bold', animation: 'pulse 1s infinite alternate' }}>
+    Votre recette est en cours de génération...
+  </div>
       {error && <div>Erreur : {error.message}</div>}
       {responseMessage && <pre>Réponse: {responseMessage}</pre>}
     </>
