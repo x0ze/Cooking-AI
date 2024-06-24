@@ -1,4 +1,5 @@
 import { LogoIcon } from "./Icons";
+import '@/public/logo-final.png'
 
 export const Footer = () => {
   return (
@@ -7,7 +8,8 @@ export const Footer = () => {
       
       <div className="container flex flex-col gap-4">
         <div className="flex items-center justify-center">
-          <LogoIcon />
+        <img src="logo-final.png" className="h-12"/>
+          {/* <LogoIcon /> */}
           <span className="ml-2 font-bold text-xl">LetHimCook</span>
         </div>
 
