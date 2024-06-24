@@ -1,4 +1,3 @@
-"use client"
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -15,27 +14,36 @@ import {
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 
-export function RecipeComplete() {
-  const [steps, setSteps] = useState([]);
-  const [recipeTitle, setRecipeTitle] = useState("");
-  const [recipeDescription, setRecipeDescription] = useState("");
-  const [ingredients, setIngredients] = useState([]);
+export const RecipeComplete: React.FC = () => {
+  const [steps, setSteps] = useState<string[]>([]);
+  const [recipeTitle, setRecipeTitle] = useState<string>("");
+  const [recipeDescription, setRecipeDescription] = useState<string>("");
+  const [ingredients, setIngredients] = useState<string[]>([]);
+
+  const updateRecipeData = () => {
+    const storedRecipe = localStorage.getItem('recette');
+    const parsedRecipe = storedRecipe ? JSON.parse(storedRecipe) : [];
+    setSteps(parsedRecipe);
+
+    const title = localStorage.getItem('titre') || '';
+    const description = localStorage.getItem('description') || '';
+    setRecipeTitle(title);
+    setRecipeDescription(description);
+
+    const storedIngredients = localStorage.getItem('ingredient');
+    const parsedIngredients = storedIngredients ? JSON.parse(storedIngredients) : [];
+    setIngredients(parsedIngredients);
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const storedRecipe = localStorage.getItem('recette');
-      const parsedRecipe = storedRecipe ? JSON.parse(storedRecipe) : [];
-      setSteps(parsedRecipe);
-
-      const title = localStorage.getItem('titre') || '';
-      const description = localStorage.getItem('description') || '';
-      setRecipeTitle(title);
-      setRecipeDescription(description);
-
-      const storedIngredients = localStorage.getItem('ingredient');
-      const parsedIngredients = storedIngredients ? JSON.parse(storedIngredients) : [];
-      setIngredients(parsedIngredients);
+      updateRecipeData();
+      window.addEventListener('storage', updateRecipeData);
     }
+
+    return () => {
+      window.removeEventListener('storage', updateRecipeData);
+    };
   }, []);
 
   return (
@@ -128,4 +136,4 @@ export function RecipeComplete() {
       </Card>
     </div>
   );
-}
+};

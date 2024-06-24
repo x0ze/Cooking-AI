@@ -57,7 +57,7 @@ export function Affine() {
       </ToggleGroup>
 
         <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="necessary" className="flex flex-col space-y-1 pt-4">
+          <Label htmlFor="necessary" className="flex flex-col space-y-1 pt-2">
             <span>Température</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground">
                 Choisissez si votre plât doit être chaud ou froid.
@@ -65,7 +65,7 @@ export function Affine() {
           </Label>
           <Switch id="necessary" defaultChecked aria-label="Necessary" />
         </div>
-        <div className="mt-4">
+        <div>
             <Select>
                 <SelectTrigger>
                     <SelectValue placeholder="Choisir" />
@@ -80,7 +80,7 @@ export function Affine() {
             </Select>
         </div>
 
-        <div className="flex items-center justify-between space-x-4 mt-4">
+        <div className="flex items-center justify-between space-x-4 mt-2">
           <Label htmlFor="functional" className="flex flex-col space-y-1">
             <span>Piquant</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground">
@@ -89,8 +89,8 @@ export function Affine() {
           </Label>
           <Switch id="functional" aria-label="Functional"/>
         </div>
-        <Slider defaultValue={[50]} max={100} step={1} className="mt-4"/>
-        <div className="flex items-center justify-between space-x-4 mt-4">
+        <Slider defaultValue={[50]} max={100} step={1}/>
+        <div className="flex items-center justify-between space-x-4 mt-2">
           <Label htmlFor="performance" className="flex flex-col space-y-1">
             <span>Thème</span>
             <span className="text-xs font-normal leading-snug text-muted-foreground mt-1">
@@ -99,7 +99,7 @@ export function Affine() {
           </Label>
           <Switch id="performance" aria-label="Performance" />
         </div>
-        <Input placeholder="Ex. Mexicain, Romantique, ..." className="mt-4"/>
+        <Input placeholder="Ex. Mexicain, Romantique, ..."/>
       </CardContent>
     </Card>
   )

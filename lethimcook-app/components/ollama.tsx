@@ -34,7 +34,8 @@ export default function OllamaData(): JSX.Element {
     setLoading(true);
     setError(null);
     setResponseMessage(null);
-
+    localStorage.clear();
+    router.replace("/generate");
     try {
       const predefinedPrompt = "Fait une recette avec les aliments suivants :";
       const formattedPrompts = prompts.map(prompt => `${prompt.prompt} [${prompt.quantity} ${prompt.unit}]`);
@@ -53,7 +54,6 @@ export default function OllamaData(): JSX.Element {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
       const data = await response.json();
       console.log('Response data:', data);
 
@@ -89,7 +89,6 @@ export default function OllamaData(): JSX.Element {
       if (Glucide) {
         localStorage.setItem('glucide', JSON.stringify(Glucide));
       }
-
       
     } catch (error) {
       console.error('Erreur lors de la récupération des données', error);
@@ -97,7 +96,6 @@ export default function OllamaData(): JSX.Element {
     } finally {
       setLoading(false);
       console.log("Response received");
-      router.replace("/generate");
     }
   };
 
@@ -118,10 +116,7 @@ export default function OllamaData(): JSX.Element {
           <Plus className="h-4 w-4" />
         </Button>
       </form>
-      {loading && (
-  <div style={{ color: 'green', fontWeight: 'bold', animation: 'pulse 1s infinite alternate' }}>
-    Votre recette est en cours de génération...
-  </div>
+      {loading && <div>Chargement...</div>}
       {error && <div>Erreur : {error.message}</div>}
       {responseMessage && <pre>Réponse: {responseMessage}</pre>}
     </>

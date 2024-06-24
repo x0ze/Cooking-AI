@@ -1,15 +1,9 @@
-
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
- 
-export function Recipe() {
+} from "@/components/ui/card";
+
+export const Recipe: React.FC = () => {
   return (
     <div className="container flex flex-row justify-between mt-10">
        <div className="h-full w-[60%]">
@@ -24,5 +18,5 @@ export function Recipe() {
       <Card className="w-[400px] h-[600px] m-0">
       </Card>
     </div>
-  )
-}
+  );
+};

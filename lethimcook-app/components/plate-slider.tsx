@@ -31,14 +31,6 @@ export default function plate() {
             />
           </div>
         </CarouselItem>
-        <CarouselItem>
-          <div>
-            <img
-              src="life.png"
-              alt="Image 4"
-            />
-          </div>
-        </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
