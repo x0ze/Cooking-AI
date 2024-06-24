@@ -22,20 +22,16 @@ export function RecipeComplete() {
   const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-    // Check if localStorage is available (client-side only)
     if (typeof window !== 'undefined') {
-      // Fetch recipe steps
       const storedRecipe = localStorage.getItem('recette');
       const parsedRecipe = storedRecipe ? JSON.parse(storedRecipe) : [];
       setSteps(parsedRecipe);
 
-      // Fetch recipe title and description
       const title = localStorage.getItem('titre') || '';
       const description = localStorage.getItem('description') || '';
       setRecipeTitle(title);
       setRecipeDescription(description);
 
-      // Fetch ingredients and their quantities
       const storedIngredients = localStorage.getItem('ingredient');
       const parsedIngredients = storedIngredients ? JSON.parse(storedIngredients) : [];
       setIngredients(parsedIngredients);
@@ -65,7 +61,6 @@ export function RecipeComplete() {
         </CardHeader>
         <CardContent className="text-lg font-normal">
           {ingredients.map((ingredient, index) => {
-            // Split the ingredient by '(' and ')'
             const parts = ingredient.split('(');
             if (parts.length === 2) {
               const name = parts[0].trim();
@@ -110,7 +105,7 @@ export function RecipeComplete() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">529 kcal</div>
+                <div className="text-2xl font-bold">{localStorage.getItem('calorie')} kcal</div>
                 <p className="text-xs text-muted-foreground">
                   Le rapport normal pour un adulte est de 2000/j
                 </p>
@@ -137,7 +132,7 @@ export function RecipeComplete() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">20 g</div>
+                <div className="text-2xl font-bold">{localStorage.getItem('glucide')} g</div>
                 <p className="text-xs text-muted-foreground">
                   Le rapport normal pour un adulte est de 250, 300/j
                 </p>
@@ -161,7 +156,7 @@ export function RecipeComplete() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">15 g</div>
+                <div className="text-2xl font-bold">{localStorage.getItem('proteine')} g</div>
                 <p className="text-xs text-muted-foreground">
                   Le rapport normal pour un adulte est de ~70/j
                 </p>

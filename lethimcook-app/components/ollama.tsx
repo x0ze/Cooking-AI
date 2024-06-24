@@ -62,7 +62,7 @@ export default function OllamaData(): JSX.Element {
       console.log('Cleaned Content:', cleanedContent);
 
       const messageContent = JSON.parse(cleanedContent);
-      const { Titre, Description, Ingredient, Recette } = messageContent;
+      const { Titre, Description, Ingredient, Recette, Calorie, Prot, Glucide } = messageContent;
 
       if (Titre) {
         localStorage.setItem('titre', Titre);
@@ -75,6 +75,15 @@ export default function OllamaData(): JSX.Element {
       }
       if (Recette) {
         localStorage.setItem('recette', JSON.stringify(Recette));
+      }
+      if (Prot) {
+        localStorage.setItem('proteine', JSON.stringify(Prot));
+      }
+      if (Calorie) {
+        localStorage.setItem('calorie', JSON.stringify(Calorie));
+      }
+      if (Glucide) {
+        localStorage.setItem('glucide', JSON.stringify(Glucide));
       }
 
       

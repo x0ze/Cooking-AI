@@ -21,6 +21,18 @@ export async function POST(req: any): Promise<any> {
         "Recette": {
             "type": "string",
             "description": "Instructions étape par étape pour préparer le plat."
+        },
+        "Calorie": {
+            "type": "string",
+            "description": "Le nombre de calorie du plat"
+        },
+        "Prot": {
+            "type": "string",
+            "description": "Le nombre de proteine du plat en gramme"
+        },
+        "Glucide": {
+            "type": "string",
+            "description": "Le nombre de glucide du plat en gramme"
         }
     };
     
@@ -28,7 +40,10 @@ export async function POST(req: any): Promise<any> {
         "Titre": "Burger",
         "Description": "Un burger classique avec un steak juteux, du pain et du ketchup.",
         "Ingredient": ["Pain (3x)", "steak (250 grammes)", "ketchup (selon envie)"],
-        "Recette": ["Faites cuire le steak selon votre préférence", "Toastez légèrement le pain", "Placez le steak cuit sur la moitié inférieure du pain", "Ajoutez du ketchup par-dessus le steak", "Refermez le burger avec la moitié supérieure du pain et servez."]
+        "Recette": ["Faites cuire le steak selon votre préférence", "Toastez légèrement le pain", "Placez le steak cuit sur la moitié inférieure du pain", "Ajoutez du ketchup par-dessus le steak", "Refermez le burger avec la moitié supérieure du pain et servez."],
+        "Calorie": 216,
+        "Prot": 15,
+        "Glucide": 20
     };
     
     const msgs = [
