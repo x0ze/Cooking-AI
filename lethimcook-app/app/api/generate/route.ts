@@ -54,7 +54,7 @@ export async function POST(req: any): Promise<any> {
     const msgs = [
         {
             "role": "system",
-            "content": `Une personne te donne une liste d'ingrédients. Crée une recette d'un plat ou d'un menu qui utilise ces ingrédients de manière réaliste. Le nom du plat ou du menu doit être reconnaissable et logique par rapport aux ingrédients. L'output doit être en français et doit être généré selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}. Fournis uniquement le JSON, sans texte supplémentaire avant ou après. Voici un exemple d'output attendu :
+            "content": `Une personne te donne une liste d'ingrédients. Crée une recette d'un plat ou d'un menu qui utilise ces ingrédients de manière réaliste. Le nom du plat ou du menu doit être reconnaissable et logique par rapport aux ingrédients. Si la personne ne te donne aucun ingrédient, crée une recette aléatoire. L'output doit être en français et doit être généré selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}. Fournis uniquement le JSON, sans texte supplémentaire avant ou après. Voici un exemple d'output attendu :
             ${JSON.stringify(exampleOutput, null, 2)}`
         }, 
         { 
