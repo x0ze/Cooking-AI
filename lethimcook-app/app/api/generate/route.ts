@@ -24,15 +24,15 @@ export async function POST(req: any): Promise<any> {
         },
         "Calorie": {
             "type": "string",
-            "description": "Le nombre de calorie du plat"
+            "description": "Le nombre de calorie au totale dans le plat"
         },
         "Prot": {
             "type": "string",
-            "description": "Le nombre de proteine du plat en gramme"
+            "description": "Le nombre de proteine au totale dans le plat en gramme"
         },
         "Glucide": {
             "type": "string",
-            "description": "Le nombre de glucide du plat en gramme"
+            "description": "Le nombre de glucide au totale dans le plat en gramme"
         },
         "Couvert": {
             "type": "string",
@@ -41,7 +41,7 @@ export async function POST(req: any): Promise<any> {
     };
     
     const exampleOutput = {
-        "Titre": "Burger",
+        "Titre": "Burger de boeuf",
         "Description": "Un burger classique avec un steak juteux, du pain et du ketchup.",
         "Ingredient": ["Pain (3x)", "steak (250 grammes)", "ketchup (selon envie)"],
         "Recette": ["Faites cuire le steak selon votre préférence", "Toastez légèrement le pain", "Placez le steak cuit sur la moitié inférieure du pain", "Ajoutez du ketchup par-dessus le steak", "Refermez le burger avec la moitié supérieure du pain et servez."],
@@ -54,7 +54,7 @@ export async function POST(req: any): Promise<any> {
     const msgs = [
         {
             "role": "system",
-            "content": `Une personne te donne une liste d'ingrédients. Crée une recette qui utilise ces ingrédients de manière réaliste. Le nom du plat doit être reconnaissable et logique par rapport aux ingrédients. L'output doit être en français et doit être généré selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}. Fournis uniquement le JSON, sans texte supplémentaire avant ou après. Voici un exemple d'output attendu :
+            "content": `Une personne te donne une liste d'ingrédients. Crée une recette d'un plat ou d'un menu qui utilise ces ingrédients de manière réaliste. Le nom du plat ou du menu doit être reconnaissable et logique par rapport aux ingrédients. L'output doit être en français et doit être généré selon le schéma JSON suivant : ${JSON.stringify(schema, null, 2)}. Fournis uniquement le JSON, sans texte supplémentaire avant ou après. Voici un exemple d'output attendu :
             ${JSON.stringify(exampleOutput, null, 2)}`
         }, 
         { 
