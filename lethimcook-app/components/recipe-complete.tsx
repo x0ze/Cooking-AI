@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from 'next/image'
+import pizza from "@/public/pizza.jpeg"
 import {
   Card,
   CardContent,
@@ -50,7 +52,8 @@ export const RecipeComplete: React.FC = () => {
   return (
     <div className="container flex flex-row justify-between mt-10 text-3xl md:text-4xl font-bold">
       <div className="h-full w-[60%]">
-        <Skeleton className="h-[400px] w-full rounded-xl" />
+        <Skeleton className="h-[400px] w-full rounded-sxl" />
+        {/*<img src="pizza.jpeg" alt="" className="h-[400px] w-full rounded-xl" />*/}
         <div className="space-y-2">
           <div className="flex justify-start">
             <h1 className="mt-5">{recipeTitle}</h1>
@@ -58,7 +61,7 @@ export const RecipeComplete: React.FC = () => {
               <CardContent className="p-2">
                       <div className="flex justify-between">
                         <h2 className="text-lg">{localStorage.getItem('couvert')}</h2>
-                        <Utensils className="text-lg"/>
+                        <Utensils className="text-lg text-primary"/>
                       </div>
               </CardContent>
             </Card>
@@ -76,7 +79,7 @@ export const RecipeComplete: React.FC = () => {
       </div>
       <Card className="w-[400px] min-h-[600px] m-0">
         <CardHeader>
-          <CardTitle className="text-center">Liste des aliments</CardTitle>
+          <CardTitle className="text-center underline">Liste des aliments</CardTitle>
         </CardHeader>
         <CardContent className="text-lg font-normal">
           {ingredients.map((ingredient, index) => {

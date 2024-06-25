@@ -42,7 +42,19 @@ Make sure you have the following installed:
     - **Next.js Application**: Running on port `3000`.
     - **Ollama AI**: Running on the 8080 but you dont need to acess.
 
-3. **Access the application:**
+3. **Install LLM:**
+
+    Choose your favorite LLM in Ollama and pull it int the cook_ollama_next docker
+
+   ```bash
+    docker exec -it cook_ollama_next bash
+    ollama pull llama3
+    ```
+
+   This will start the llama3 llm from Meta
+       
+
+5. **Access the application:**
 
     Once the containers are up and running, you can access the web application in your browser at:
 
