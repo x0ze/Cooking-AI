@@ -61,9 +61,13 @@ Make sure you have the following installed:
     ```plaintext
     http://localhost:3000
     ```
+    ![](demo/console.png)
 
 ## Usage
 
 - Navigate through the UI to generate recipes.
+  ![](demo/home.gif)
 - Interact with the form to input ingredients or other preferences.
-- View the generated recipe with instructions.
+  ![](demo/settings.gif)
+- View the generated recipe with instructions (the recipe given in the example was generated with llama3 in 2024).
+  ![](demo/recipe.gif)
