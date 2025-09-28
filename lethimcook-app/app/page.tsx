@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Navbar } from "@/components/ui/Navbar";
-import { Hero } from "@/components/ui/Hero";
-import { Footer } from "@/components/ui/Footer";
+import { Navbar } from "@/components/ui/layout/Navbar";
+import { Hero } from "@/components/ui/layout/Hero";
+import { Footer } from "@/components/ui/layout/Footer";
 
 export default function Home() {
   return (

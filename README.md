@@ -2,6 +2,11 @@
 
 This is a Next.js web application that generates cooking recipes using a locally running AI model (Ollama). The project uses Shadcn as the UI framework and Tailwind CSS for styling. It is built with TypeScript and containerized using Docker.
 
+> ⚠️ **Warning**: This project is a **Proof of Concept (POC)**.  
+> The code is not optimized for production, and not all frontend features are fully implemented on the backend.
+> It is also possible to run Ollama with **GPU acceleration** (e.g., NVIDIA RTX cards via Docker), which can greatly improve performance, but setup instructions are **not included here**.
+
+
 ## Features
 
 - **Next.js**: A React framework for building modern web applications.
@@ -40,21 +45,9 @@ Make sure you have the following installed:
 
     This will create and start two containers:
     - **Next.js Application**: Running on port `3000`.
-    - **Ollama AI**: Running on the 8080 but you dont need to acess.
+    - **Ollama AI**: Running internally on port `8080` (no direct access required, the LLM such as `llama3` is pulled automatically at startup).
 
-3. **Install LLM:**
-
-    Choose your favorite LLM in Ollama and pull it int the cook_ollama_next docker
-
-   ```bash
-    docker exec -it cook_ollama_next bash
-    ollama pull llama3
-    ```
-
-   This will start the llama3 llm from Meta
-       
-
-5. **Access the application:**
+3. **Access the application:**
 
     Once the containers are up and running, you can access the web application in your browser at:
 
@@ -65,9 +58,9 @@ Make sure you have the following installed:
 
 ## Usage
 
-- Navigate through the UI to generate recipes.
+- Navigate through the UI to generate recipes.  
   ![](demo/home.gif)
-- Interact with the form to input ingredients or other preferences.
+- Interact with the form to input ingredients or other preferences.  
   ![](demo/settings.gif)
-- View the generated recipe with instructions (the recipe given in the example was generated with llama3 in 2024).
+- View the generated recipe with instructions (the recipe given in the example was generated with llama3 in 2024).  
   ![](demo/recipe.gif)

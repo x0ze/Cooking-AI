@@ -1,6 +1,6 @@
-import { AccordionDemo } from "@/components/ui/AccordionDemo"; 
-import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
+import { AccordionDemo } from "@/components/ui/shadcn/AccordionDemo"; 
+import { Navbar } from "@/components/ui/layout/Navbar";
+import { Footer } from "@/components/ui/layout/Footer";
 
 export default function Home() {
   return (

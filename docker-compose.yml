@@ -1,28 +1,22 @@
 services:
   next-app:
-    image: node:latest
+    build: .
     container_name: cook_next_app
-    command: /bin/sh -c "cd /app/cook-app && npm install && npm install @radix-ui/react-accordion && npm run dev"
     ports:
-      - 3000:3000
-    working_dir: /app/cook-app
+      - "3000:3000"
+    volumes:
+      - ./lethimcook-app:/app
+      - /app/node_modules
     environment:
       - WATCHPACK_POLLING=true
-    volumes:
-      - type: bind
-        source: ./lethimcook-app
-        target: /app/cook-app
-    tty: true
-    networks:
-      - cook_network
-  
+    restart: unless-stopped
+
   ollama:
-    container_name: cook_ollama_next
     image: ollama/ollama
+    container_name: cook_ollama_next
     ports:
       - "8080:11434"
-    networks:
-      - cook_network
-
-networks:
-  cook_network: {}
+    restart: unless-stopped
+    entrypoint: ["/app/ollama/entrypoint.sh"]
+    volumes:
+      - ./ollama/entrypoint.sh:/app/ollama/entrypoint.sh
